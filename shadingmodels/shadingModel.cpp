@@ -49,4 +49,17 @@ void main(){
     }
 }
 
+//####################################################################################
+// Vertex shader impl
+//####################################################################################
+layout(location=0) in vec4 position;
+layout(location=1) in vex4 normal;
+out vec3 vPosition;
+out vec3 vNormal;
 
+void main(){
+    vec4 worldPosition = uModel * position;
+    vPos = worldPosition.xyz;
+    vNormal = (uModel * normal).xyz;
+    gl_Position = viewProj * worldPosition;
+}
